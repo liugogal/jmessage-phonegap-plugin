@@ -129,6 +129,48 @@ public class JMessagePlugin extends CordovaPlugin {
         mCallback = callback;
     }
 
+    /**
+     * 设置通知展示类型
+     * @param data
+     * @param callback
+     */
+    void setNotificationFlag(JSONArray data, CallbackContext callback) {
+        boolean sound=false, vibrate=false, lights=false;
+        int flag = 0;
+
+        try{
+            JSONObject params = data.getJSONObject(0);
+            if(params.has("sound")) {
+                sound = params.getBoolean("sound");
+            }
+            if(params.has("vibrate")){
+                vibrate = params.getBoolean("vibrate");
+            }
+            if(params.has("lights")) {
+                lights = params.getBoolean("lights");
+            }
+
+            if(sound) {
+                flag = flag | JMessageClient.FLAG_NOTIFY_WITH_SOUND;
+            }
+            if(vibrate) {
+                flag = flag | JMessageClient.FLAG_NOTIFY_WITH_VIBRATE;
+            }
+            if(lights) {
+                flag = flag | JMessageClient.FLAG_NOTIFY_WITH_LED;
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        System.out.print("sound:"+sound+",vibrate:"+vibrate);
+
+        //设置通知模式
+        JMessageClient.setNotificationFlag(flag);
+    }
+
     void setDebugMode(JSONArray data, CallbackContext callback) throws JSONException {
         JSONObject params = data.getJSONObject(0);
         boolean enable = params.getBoolean("enable");

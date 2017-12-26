@@ -67,6 +67,14 @@ var JMessagePlugin = {
     exec(success, null, PLUGIN_NAME, 'init', [params])
   },
   /**
+   * 设置通知方式。
+   *
+   * @param {object} params = {'sound': boolean, 'vibrate': boolean, 'lights': boolean}
+   */
+  setNotificationFlag: function (params) {
+      exec(null, null, PLUGIN_NAME, 'setNotificationFlag', [params])
+  },
+  /**
    * 设置是否开启 debug 模式，开启后 SDK 将会输出更多日志信息。应用对外发布时应关闭。
    *
    * @param {object} params = {'enable': boolean}
@@ -162,11 +170,11 @@ var JMessagePlugin = {
 
   /**
    * 更新当前用户头像。
-   * 
+   *
    * @param {object} params = {
    *  id: string // 目标群组的 id。
    *  imgPath: string // 本地图片绝对路径。
-   * }  
+   * }
    * 注意 Android 与 iOS 的文件路径是不同的：
    *   - Android 类似：/storage/emulated/0/DCIM/Camera/IMG_20160526_130223.jpg
    *   - iOS 类似：/var/mobile/Containers/Data/Application/7DC5CDFF-6581-4AD3-B165-B604EBAB1250/tmp/photo.jpg
@@ -349,7 +357,7 @@ var JMessagePlugin = {
   },
   /**
    * 根据消息 id 获取消息对象。
-   * 
+   *
    * @param {object} params = {
    *   type: string,      // 'single' / 'group'
    *   groupId: string,   // 当 type = 'group' 时，groupId 必填。
@@ -363,7 +371,7 @@ var JMessagePlugin = {
   },
   /**
    * 根据消息 id 删除指定消息。
-   * 
+   *
    * @param {object} params 同上。
    */
   deleteMessageById: function (params, success, error) {
