@@ -1,9 +1,9 @@
 {
-    "name": "jmessage-phonegap-plugin",
+    "name": "jmessage-phonegap-plugin-liugogal",
     "version": "3.1.3",
     "description": "JMessage Cordova Plugin.",
     "cordova": {
-        "id": "jmessage-phonegap-plugin",
+        "id": "jmessage-phonegap-plugin-liugogal",
         "platforms": [
             "ios",
             "android"
@@ -11,7 +11,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/jpush/jmessage-phonegap-plugin.git"
+        "url": "git+https://github.com/liugogal/jmessage-phonegap-plugin.git"
     },
     "keywords": [
         "JMessage",
@@ -26,10 +26,10 @@
         "cordova-plugin-device": "*",
         "cordova-plugin-jcore": "*"
     },
-    "author": "JiGuang",
+    "author": "liugogal",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/jpush/jmessage-phonegap-plugin/issues"
+        "url": "https://github.com/liugogal/jmessage-phonegap-plugin/issues"
     },
-    "homepage": "https://github.com/jpush/jmessage-phonegap-plugin#readme"
+    "homepage": "https://github.com/liugogal/jmessage-phonegap-plugin#readme"
 }
